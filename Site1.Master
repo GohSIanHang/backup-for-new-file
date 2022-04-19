@@ -1,0 +1,365 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="AGN.Site1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+
+
+    <title></title>
+
+    <%--bootstrap css--%>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <%--datatables css--%>
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+    <%--fontawesome css--%>
+    <link href="fontawesome/css/all.css" rel="stylesheet" />
+    <%--custom css--%>
+    <link href="css/CustomerStyleSheet.css" rel="stylesheet" />
+
+    <%--jquery--%>
+    <script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
+    <%--popper js--%>
+    <script src="bootstrap/js/popper.min.js"></script>
+    <%--bootstrap js--%>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <%--datatables js--%>
+    <script src="datatables/js/jquery.dataTables.min.js"></script>
+
+    <style>
+        .btn {
+            background-color: white;
+            color: black;
+            font-size: 18px;
+            border: 1px solid #555555;
+        }
+
+        .navbar-nav > li {
+            padding-left: 15px;
+
+            //padding-right:30px;
+        }
+    </style>
+
+     
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+            transition: background-color .5s;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+            .sidenav a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 22px;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+            }
+
+                .sidenav a:hover {
+                    color: #f1f1f1;
+                }
+
+            .sidenav .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+                .sidenav a {
+                    font-size: 15px;
+                }
+        }
+    </style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+
+
+</head>
+<body>
+
+    <form id="form1" runat="server">
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a id="A8" runat="server" href="http://localhost:1230/adminSManagement.aspx">Feedback Management</a>
+            
+            <a id="A2" runat="server" href="http://localhost:1230/coachpage.aspx">Coach Management</a>
+            <a id="A1" runat="server" href="http://localhost:1230/adminpayment.aspx">User Payment</a>
+            <a id="A3" runat="server" href="http://localhost:1230/adminserviceinventory.aspx">Service Inventory</a>
+            <a id="A4" runat="server" href="http://localhost:1230/adminDrivingRange.aspx">Driving Range Component</a>
+            <a id="A5" runat="server" href="http://localhost:1230/serviceapproval.aspx">Service Reservation</a>
+            <a id="A6" runat="server" href="http://localhost:1230/drapproval.aspx">Driving Range Reservation</a>
+            <a id="A7" runat="server" href="http://localhost:1230/adminmembermanagement.aspx">User Management</a>
+            <a id="U1" runat="server" href="http://localhost:1230/adminservice.aspx">Service Registration</a>
+            <a id="U2" runat="server" href="http://localhost:1230/customerdrivingrange.aspx">Driving Range Registration</a>
+            <a id="U3" runat="server" href="http://localhost:1230/paymenthistory.aspx">Payment History</a>
+            <a id="U4" runat="server" href="http://localhost:1230/customerfeedback.aspx">Feedback</a>
+            <a id="N1" runat="server" href="http://localhost:1230/userlogin.aspx">User Login</a>
+            <a id="N2" runat="server" href="http://localhost:1230/usersignup.aspx">Sign Up</a>
+            <a id="N3" runat="server" href="http://localhost:1230/viewservice.aspx">View Services</a>
+            <a id="N4" runat="server" href="http://localhost:1230/viewdrivingrange.aspx">View Driving Range</a>
+            <a id="A9" runat="server" href="http://localhost:1230/customercancel.aspx">Your Cancelled Service</a>
+            <a id="A10" runat="server" href="http://localhost:1230/adminrefund.aspx">Refund Customer</a>
+            <a id="U5" runat="server" href="http://localhost:1230/mainpage.aspx">Main Menu</a>
+            <a id="A12" runat="server" href="http://localhost:1230/adminmenu.aspx">Admin Main Menu</a>
+            <a id="A13" runat="server" href="http://localhost:1230/totalsales.aspx">Sales Report</a>
+        </div>
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">
+                    
+                    <img src="imgs/unnamed.png" width="200" height="70" />
+                    AGN Service & Driving Range Operation Management System
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportContent" aria-controls="nacbarSupportContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                
+
+            </nav>
+            <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #d3d3d3;">
+                <a class="navbar-brand" href="#">
+                    <span style="font-size: 25px; cursor: pointer" onclick="openNav()">&#9776;</span>
+                    
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportContent" aria-controls="nacbarSupportContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="homepage.aspx">About Us</a>
+                        </li>
+                        <li class="nav-item active">
+                            <asp:LinkButton class="nav-link" ID="LinkButton23" runat="server" OnClick="LinkButton23_Click" CausesValidation="False">Main Menu</asp:LinkButton>
+                            
+                        </li>
+                        <li class="nav-item active">
+                           <asp:LinkButton class="nav-link" ID="LinkButton24" runat="server" OnClick="LinkButton24_Click" CausesValidation="False">Admin Menu</asp:LinkButton>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="contactus.aspx">Contact Us</a>
+                        </li>
+                        
+                    </ul>
+
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <asp:LinkButton CssClass="btn btn-lg btn-block btn-primary" class="btn" ID="LinkButton4" runat="server" OnClick="LinkButton4_Click" CausesValidation="False">
+                                View Services</asp:LinkButton>
+                        </li>
+
+                        <li class="nav-item active">
+                            <asp:LinkButton CssClass="btn btn-lg btn-block btn-primary" class="btn" ID="LinkButton5" runat="server" OnClick="LinkButton5_Click" CausesValidation="False">View Driving Range</asp:LinkButton>
+                        </li>
+
+                        <li class="nav-item active">
+                            <asp:LinkButton CssClass="btn btn-lg btn-block btn-primary" class="btn" ID="LinkButton1" runat="server" OnClick="LinkButton1_Click" CausesValidation="False">User Login</asp:LinkButton>
+                        </li>
+
+
+                        <li class="nav-item active">
+                            <asp:LinkButton CssClass="btn btn-lg btn-block btn-primary" class="btn" ID="LinkButton2" runat="server" OnClick="LinkButton2_Click" CausesValidation="False">Sign Up</asp:LinkButton>
+                        </li>
+                        <li class="nav-item active">
+                            <asp:LinkButton CssClass="btn btn-lg btn-block btn-primary" class="btn" ID="LinkButton3" runat="server" Visible="False" OnClick="LinkButton3_Click" CausesValidation="False">Logout</asp:LinkButton>
+                        </li>
+
+                        <li class="nav-item active">
+                            <asp:LinkButton CssClass="btn btn-lg btn-block btn-primary" class="btn" ID="LinkButton7" runat="server" Visible="False" CausesValidation="False" OnClick="LinkButton7_Click">Hello User</asp:LinkButton>
+                        </li>
+                    </ul>
+                </div>
+
+            </nav>
+
+        </div>
+
+        <!-- Main Content Placeholder -->
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <!-- Main Content Placeholder -->
+
+        <!-- Footer -->
+        <footer>
+            <div id="footer1" class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                        <p>
+                            <asp:LinkButton class="footerlinks" ID="LinkButton6" runat="server" OnClick="LinkButton6_Click" CausesValidation="False">Admin Login</asp:LinkButton>
+                            &nbsp;
+                            <asp:LinkButton class="footerlinks" ID="LinkButton13" runat="server" OnClick="LinkButton13_Click" Visible="False" CausesValidation="False">Feedback</asp:LinkButton>
+                            &nbsp;
+                            <asp:LinkButton class="footerlinks" ID="LinkButton21" runat="server" OnClick="LinkButton21_Click" Visible="False" CausesValidation="False">Refund Customer</asp:LinkButton>
+                            &nbsp;
+                            <asp:LinkButton class="footerlinks" ID="LinkButton12" runat="server" OnClick="LinkButton12_Click" Visible="False" CausesValidation="False">User Payment History</asp:LinkButton>
+                            &nbsp;
+                            <asp:LinkButton class="footerlinks" ID="LinkButton11" runat="server" OnClick="LinkButton11_Click" Visible="False" CausesValidation="False">Feedback Management</asp:LinkButton>
+                            &nbsp;
+                            <asp:LinkButton class="footerlinks" ID="LinkButton16" runat="server" OnClick="LinkButton16_Click" Visible="False" CausesValidation="False">Service Register</asp:LinkButton>
+                            &nbsp;
+                            <asp:LinkButton class="footerlinks" ID="LinkButton17" runat="server" OnClick="LinkButton17_Click" Visible="False" CausesValidation="False">Driving Range Register</asp:LinkButton>
+                            &nbsp;
+                            <asp:LinkButton class="footerlinks" ID="LinkButton19" runat="server" OnClick="LinkButton19_Click" Visible="False" CausesValidation="False">Payment History</asp:LinkButton>
+                            &nbsp;
+                            <asp:LinkButton class="footerlinks" ID="LinkButton20" runat="server" OnClick="LinkButton20_Click" Visible="False" CausesValidation="False">Refund Payment</asp:LinkButton>
+                            &nbsp;
+                            <asp:LinkButton class="footerlinks" ID="LinkButton14" runat="server" OnClick="LinkButton14_Click" Visible="False" CausesValidation="False">Coach Management</asp:LinkButton>
+                            &nbsp;
+                            <asp:LinkButton class="footerlinks" ID="LinkButton8" runat="server" OnClick="LinkButton8_Click" Visible="False" CausesValidation="False">Services Inventory</asp:LinkButton>
+                            &nbsp;
+                            <asp:LinkButton class="footerlinks" ID="LinkButton15" runat="server" OnClick="LinkButton15_Click" Visible="False" CausesValidation="False">Driving Range Component</asp:LinkButton>
+                            &nbsp;
+                            <asp:LinkButton class="footerlinks" ID="LinkButton9" runat="server" OnClick="LinkButton9_Click" Visible="False" CausesValidation="False">Service Reservation</asp:LinkButton>
+                            &nbsp;
+                             <asp:LinkButton class="footerlinks" ID="LinkButton18" runat="server" OnClick="LinkButton18_Click" Visible="False" CausesValidation="False">Driving Range Reservation</asp:LinkButton>
+                            &nbsp;
+                             <asp:LinkButton class="footerlinks" ID="LinkButton10" runat="server" OnClick="LinkButton10_Click" Visible="False" CausesValidation="False">User Management</asp:LinkButton>
+                            &nbsp;
+                            <asp:LinkButton class="footerlinks" ID="LinkButton22" runat="server" OnClick="LinkButton22_Click" Visible="False" CausesValidation="False">Sales Report</asp:LinkButton>
+                            &nbsp;
+                             
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+            <div id="footer2" class="container-fluid">
+                <div class="container foot-cont">
+                    <div class="row">
+                        <div class="col-md-4 menu-foot">
+
+                            <br>
+                            <h4 style="color: whitesmoke"><u>Contacts</u></h4>
+                            <p style="color: Silver">UUM NATIONAL GOLF ACADEMY</p>
+                            <p style="color: Silver">Universiti Utara Malaysia</p>
+                            <p style="color: Silver">06010 Sintok</p>
+                            <p style="color: Silver">Kedah Darul Aman, Malaysia</p>
+                            <i class="fa fa-phone" aria-hidden="true" style="color: Silver"> +604-928 3591 / 3594 / 3596</i>
+                            <br>
+                            <br>
+                            <i class="fa fa-fax" style="color: Silver"> +604-928 3592</i>
+                            <br>
+                            <br>
+                            <i class="fa fa-envelope" style="color: Silver"> uumnga@uum.edu.my</i>
+                            <br>
+                            <br>
+      <%--                      <button class="button" style="background-color: #008CBA">Facebook <i class="fa fa-facebook-official"><a href="https://www.facebook.com/universitiutaramalaysia/"></a></i></button>
+                            <button class="button2" style="background-color: #f44336">Youtube <i class="fa fa-youtube-square"><a href="https://www.youtube.com/user/uumtube"></a></i></button>--%>
+                            <asp:Button ID="Button1" style="color:white;background-color: #008CBA" runat="server" Text="Facebook" OnClick="Button1_Click"  CausesValidation="False" />
+                            <asp:Button ID="Button2" style="color:white;background-color: #f44336" runat="server" Text="YouTube" OnClick="Button2_Click"  CausesValidation="False" />
+                            <ul>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-4 cont-foot">
+                            <br />
+                            
+                            <h4 style="color: whitesmoke"><u>Google Maps</u></h4>
+                            <p style="color: Silver">Find Us At Google Map</p>
+                            <iframe width="250" height="150" id="gmap_canvas" src="https://maps.google.com/maps?q=uum&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                            <a href="https://www.embedgooglemap.net/blog/nordvpn-coupon-code/"></a>
+                            <style>
+                                .mapouter {
+                                    position: relative;
+                                    text-align: right;
+                                    height: 700px;
+                                    width: 800px;
+                                }
+
+                                .gmap_canvas {
+                                    overflow: hidden;
+                                    background: none!important;
+                                    height: 700px;
+                                    width: 800px;
+                                }
+                            </style>
+
+                        </div>
+
+                        <div class="col-md-4 menu-foot">
+
+                            <br>
+                            <h4 style="color: whitesmoke"><u>About US</u></h4>
+                            <p style="color: Silver">We Provide: </p>
+                            <p style="color: Silver">• AGN/Golf services<br />• Driving Range</p>
+                            <p style="color: Silver">Best viewed using any browsers with resolution of 1280 x 720 or higher.</p>
+                            <p style="color: whitesmoke"></p>
+                            
+                            <br>
+                            <br>
+                           <ul>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                        <p style="color: whitesmoke">&copy All right Reversed. <a class="footerlinks" href="#" target="_blank">Akademi Golf Nasional</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+        <!-- ./Footer -->
+
+
+        <script>
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "350px";
+                document.getElementById("main").style.marginLeft = "350px";
+                document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+            }
+
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+                document.body.style.backgroundColor = "white";
+            }
+        </script>
+    </form>
+</body>
+</html>
